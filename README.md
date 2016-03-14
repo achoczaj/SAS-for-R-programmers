@@ -26,8 +26,10 @@ Buick ,  26 , ,2230, 0
 Buick ,  20 ,3 ,3280 ,0
 Buick ,  16 ,3 ,3880 ,0
 Buick ,  19 ,3 ,3400 ,0')```
+colnames(d) = c('make', 'mpg', 'rep78', 'weight', 'foreign')
 ```
 
+##### SAS:
 
 ```SAS
 DATA d;
