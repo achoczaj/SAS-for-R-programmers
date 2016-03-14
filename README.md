@@ -2,17 +2,9 @@
 
 This list was written to help quickly translate R code to the equivalent in SAS.
 
-```R
-d = read.table(a=1)
-```
+<pre><code class='language-r'>d = read.table(a=1)
 
-```SAS
-DATA d ;
-  INPUT make $  mpg rep78 weight foreign ;
-  CARDS;
-  AMC     22 3 2930 0
-  AMC     17 3 3350 0
-  AMC     22 . 2640 0
-  ```
+
+<pre><code class='language-r'>DATA d ;<br/>  INPUT make $  mpg rep78 weight foreign ;<br/>  CARDS;<br/>  AMC     22 3 2930 0<br/>  AMC     17 3 3350 0<br/>  AMC     22 . 2640 0<br/></code></pre>
 
 
