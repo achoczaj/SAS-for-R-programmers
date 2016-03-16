@@ -1,4 +1,4 @@
-# *R to SAS cheatsheet* --- a collection of snippets
+# *R to SAS cheatsheet* - a collection of snippets
 
 This list was created to quickly translate a R code to its equivalent in SAS.
 
@@ -8,7 +8,7 @@ I wrote these snippets to be as short as possible and to reflect my own coding s
 
 ### Loading inline data
 
-Typically copy and paste a few lines of data in CSV format.
+Typically copy-and-paste a few lines of data in CSV format.
 
 ##### R:
  
@@ -25,7 +25,7 @@ Buick ,  18 ,3 ,3670 ,0
 Buick ,  26 , ,2230, 0
 Buick ,  20 ,3 ,3280 ,0
 Buick ,  16 ,3 ,3880 ,0
-Buick ,  19 ,3 ,3400 ,0')```
+Buick ,  19 ,3 ,3400 ,0')
 colnames(d) = c('make', 'mpg', 'rep78', 'weight', 'foreign')
 ```
 
@@ -51,3 +51,28 @@ INFILE CARDS DELIMITER = ',';
   Buick ,  19 ,3 ,3400 ,0
   ;
 ```
+
+Caveat: use `$` to indicate a String field.
+
+### Loading data from a file
+
+In this example, the file in CSV format.
+
+##### R:
+ 
+```R
+d = read.csv('example.csv')
+```
+
+#### SAS:
+
+```SAS
+ IMPORT datafile = "example.csv"
+     OUT = d
+     DBMS = CSV;
+```
+
+Caveat: depending on your platform, you might need to enter ```FILENAME CSV "example.csv" TERMSTR=CRLF;``` (windows carriage returns) or ```FILENAME CSV "example.csv" TERMSTR=LF;``` (linux) prior to importing.
+
+
+
