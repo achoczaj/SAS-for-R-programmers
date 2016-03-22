@@ -34,7 +34,7 @@ colnames(d) = c('make', 'mpg', 'rep78', 'weight', 'foreign')
 ```SAS
 DATA d;
 INFILE CARDS DELIMITER = ',';
-  INPUT make $  mpg rep78 weight foreign ;
+  INPUT make $  mpg rep78 weight foreign;
   CARDS;
   AMC   ,  22 ,3 ,2930 ,0
   AMC   ,  17 ,3 ,3350 ,0
@@ -67,8 +67,8 @@ d = read.csv('example.csv')
 #### SAS:
 
 ```SAS
- IMPORT datafile = "example.csv"
-     OUT = d
+PROC IMPORT datafile = "example.csv";
+     OUT = d;
      DBMS = CSV;
 ```
 
