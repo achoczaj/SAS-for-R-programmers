@@ -33,7 +33,7 @@ colnames(d) = c('make', 'mpg', 'rep78', 'weight', 'foreign')
 
 ```SAS
 DATA d;
-INFILE CARDS DELIMITER = ',';
+INFILE CARDS DELIMITER=',';
   INPUT make $  mpg rep78 weight foreign;
   CARDS;
   AMC   ,  22 ,3 ,2930 ,0
@@ -67,12 +67,26 @@ d = read.csv('example.csv')
 #### SAS:
 
 ```SAS
-PROC IMPORT datafile = "example.csv";
-     OUT = d;
-     DBMS = CSV;
+PROC IMPORT DATAFILE="example.csv";
+     OUT=d;
+     DBMS=CSV;
 ```
 
 Caveat: depending on your platform, you might need to enter ```FILENAME CSV "example.csv" TERMSTR=CRLF;``` (windows carriage returns) or ```FILENAME CSV "example.csv" TERMSTR=LF;``` (linux) prior to importing.
 
+## Data statistics
 
+### Showing summary statistics
+
+##### R:
+
+```R
+summary(d)
+```
+
+#### SAS:
+
+```SAS
+PROC MEANS DATA=d;
+```
 
