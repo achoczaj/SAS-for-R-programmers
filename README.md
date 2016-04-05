@@ -74,6 +74,32 @@ PROC IMPORT DATAFILE="example.csv";
 
 Caveat: depending on your platform, you might need to enter ```FILENAME CSV "example.csv" TERMSTR=CRLF;``` (windows carriage returns) or ```FILENAME CSV "example.csv" TERMSTR=LF;``` (linux) prior to importing.
 
+## Common data manipulation
+
+### Merging two datasets
+
+##### R:
+
+```R
+merge(first_dataset, second_dataset, by='the_key')
+```
+
+#### SAS:
+
+```SAS
+PROC SORT DATA=first_dataset;
+BY the_key;
+
+PROC SORT DATA=second_dataset;
+BY the_key;
+
+DATA merged_dataset;
+MERGE first_dataset second_dataset;
+BY the_key;
+```
+
+Huge caveat: `MERGE` requires the data to be sorted. To avoid sorting beforehand, it is possible to make the merge with `PROC SQL`.
+
 ## Data statistics
 
 ### Showing summary statistics
