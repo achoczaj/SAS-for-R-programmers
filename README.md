@@ -100,6 +100,24 @@ BY the_key;
 
 Huge caveat: `MERGE` requires the data to be sorted. To avoid sorting beforehand, it is possible to make the merge with `PROC SQL`.
 
+### Concatenating two datasets
+
+##### R:
+
+```R
+both = rbind(first_dataset, second_dataset)
+```
+
+Note: if the columns do not match, invoke `rbind.fill` instead of `rbind` (from package `plyr`).
+
+#### SAS:
+
+```SAS
+DATA both;
+SET first_dataset second_dataset;
+RUN;
+```
+
 ## Data statistics
 
 ### Showing summary statistics
