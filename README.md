@@ -81,7 +81,7 @@ Caveat: depending on your platform, you might need to enter ```FILENAME CSV "exa
 ##### R:
 
 ```R
-merge(first_dataset, second_dataset, by='the_key')
+merged_dataset = merge(first_dataset, second_dataset, by='the_key')
 ```
 
 #### SAS:
