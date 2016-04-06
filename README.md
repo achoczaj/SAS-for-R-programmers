@@ -76,6 +76,23 @@ Caveat: depending on your platform, you might need to enter ```FILENAME CSV "exa
 
 ## Common data manipulation
 
+### sorting one dataset
+
+In this example, `dataset` is a `data.frame`/`DATA` with one column named `thekey` and some other columns containing different values.
+
+##### R:
+
+```R
+sorted_dataset = dataset[order(dataset$thekey),]
+```
+
+#### SAS:
+
+```SAS
+PROC SORT DATA=sorted_dataset;
+BY thekey;
+```
+
 ### Merging two datasets
 
 ##### R:
