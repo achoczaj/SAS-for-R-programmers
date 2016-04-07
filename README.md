@@ -115,7 +115,15 @@ MERGE first_dataset second_dataset;
 BY the_key;
 ```
 
-Huge caveat: `MERGE` requires the data to be sorted. To avoid sorting beforehand, it is possible to make the merge with `PROC SQL`.
+Huge caveat: `MERGE` requires the data to be sorted. To avoid sorting beforehand, it is possible to make the merge with `PROC SQL`:
+```SAS
+PROC SQL;
+  CREATE TABLE merged_dataset AS
+  SELECT * 
+  FROM first_dataset
+  FULL JOIN second_dataset
+  ON first_dataset.the_key = second_dataset.the_key;
+```
 
 ### Concatenating two datasets
 
